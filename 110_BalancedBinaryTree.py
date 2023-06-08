@@ -17,3 +17,4 @@ def is_balanced(root):
         return max(left, right) + 1
     
     return True if depth(root) != -1 else False
+
