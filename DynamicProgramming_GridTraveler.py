@@ -1,5 +1,5 @@
 
-def grid_traveler(m,n, memo = {}):
+def grid_traveler(m,n, memo = {}): # We can pass a key word arg here
     key = (m,n)
     if key in memo: return memo[key]
     if m == 0 or n == 0: return 0
