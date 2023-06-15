@@ -1,4 +1,4 @@
-def fib(n, memo = {}):
+def fib(n, memo = {}): # Passed the cach as a kwarg
     if n in memo: return memo[n]
     if n == 0: return 0
     if n == 1: return 1
