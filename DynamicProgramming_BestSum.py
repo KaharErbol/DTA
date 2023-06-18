@@ -19,4 +19,4 @@ def best_sum(target, numbers, memo={}):
     return shortest_combo
 
 
-print(best_sum(11, [1,2,5]))
+print(best_sum(11, [None]))
