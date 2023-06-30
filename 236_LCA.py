@@ -4,16 +4,27 @@ class NodeTree:
         self.left = None
         self.right = None
 
-def lowest_common_ancestor(root, p, q):
-    if not root:
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        if root is None:
+            return None
+
+        if root.val == p.val:
+            return root
+        
+        if root.val == q.val:
+            return root
+
+        left = self.lowestCommonAncestor(root.left, p, q)
+        right = self.lowestCommonAncestor(root.right, p, q)
+
+        if not right: 
+            return left
+        
+        if not left:
+            return right
+        
+        if right and left:
+            return root
+
         return None
-    
-    if root.val == p.val:
-        return p
-    elif root.val == q.val:
-        return q
-    
-    if root.val < max(p.val, q.val) and root.val > min(p.val, q.val):
-        return root
-    
-    return lowest_common_ancestor(root.left, p, q) or lowest_common_ancestor(root.right, p, q)
