@@ -16,5 +16,5 @@ print(coin_change([1,2,5], 11))
 coins: 1, 2, 3
 amount: 4
 dp:     0   1   2   3   4   
-coins:  0   1   1   2   2
+coins:  0   1   1   1   2
 """
