@@ -7,7 +7,9 @@ def selection_sort(n: list) -> list:
         if min_val_idx != i:
             n[i], n[min_val_idx] = n[min_val_idx], n[i] 
 
-    return n
+    
 
 n = [2,3,1,4,8]
-print(selection_sort(n))
+selection_sort(n)
+print(n)
+
