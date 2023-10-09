@@ -2,17 +2,22 @@ import math
 
 def get_max_additional_diners_count(N, K, M, S):
     S.sort()
-    guests = 0
-    start = 1
-    range_val = 0
-    for seated_diner in S:
-        range_val = seated_diner - start
-        guests += math.floor(range_val / (K + 1))
-        start = seated_diner + K + 1
-    range_val = N - start + 1
-    guests += math.ceil(range_val / (K + 1))
+    extraSpace = 0
+    firstOpenSeat = 1
 
-    return guests
+    for takenSeat in S:
+        openSeats = takenSeat - K - firstOpenSeat
+        if (openSeats > 0):
+            extraSpace += math.ceil(openSeats/(K+1))
+        firstOpenSeat = takenSeat + K + 1
+    
+    # After the right most taken seat
+    openSeats = N + 1 - firstOpenSeat
+    if(openSeats > 0):
+        extraSpace += math.ceil(openSeats/(K+1))
+    
+    return extraSpace
+
 
 
 # Example usage:
